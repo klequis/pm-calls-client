@@ -1,9 +1,9 @@
-import { AddUserForm } from './components/AddUserForm'
+import { Landing } from './pages/Landing'
 
 const App = () => {
   return (
     <div>
-      <AddUserForm />
+      <Landing />
     </div>
   )
 }

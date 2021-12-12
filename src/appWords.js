@@ -130,6 +130,7 @@ export const wdTxFetchError = 'txFetchError'
 export const wdTxTbl = 'txTbl'
 // U
 export const wdUpdate = 'update'
+export const wdUser = 'user'
 // V
 export const wdValue = 'value'
 

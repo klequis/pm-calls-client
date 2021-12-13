@@ -1,3 +1,7 @@
+import { selectUser } from '../../selectors/userSelector'
+import { useAppSelector } from '../../app/hooks'
+
 export const LandingHeader = () => {
-  return <p>USERNAME GOES HERE</p>
+  const { username } = useAppSelector(selectUser)
+  return <p>Hello {username}</p>
 }

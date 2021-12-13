@@ -1,27 +1,26 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 // import { useUser } from '../components/useUser'
-import { createUser } from '../features/user'
+import { createUser } from './userSlice'
 
 export const AddUserForm = () => {
   // const { createUser } = useUser()
   const [username, setUsername] = useState('')
 
-  const _dispatch = useDispatch()
+  const _dispatch = useAppDispatch()
 
   const onUsernameChange = (e: any) => {
     setUsername(e.target.value)
   }
 
-  const onAddUserClick = () => {
-    // @ts-ignore
-    _dispatch(createUser(username))
-  }
+  // const onAddUserClick = () => {
+  //   _dispatch(createUser(username))
+  // }
 
   return (
     <>
       <input type="text" name="username" onChange={onUsernameChange} />
-      <button onClick={onAddUserClick}>Add user</button>
+      <button onClick={() => _dispatch(createUser(username))}>Add user</button>
     </>
   )
 }

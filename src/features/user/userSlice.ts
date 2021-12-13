@@ -19,6 +19,8 @@ import * as R from 'ramda'
 export interface userState {
   id: string | null
   username: string | null
+  createdAt: string | null
+  updatedAt: string | null
   fetchStatus: string
   fetchError: any | null
 }
@@ -26,6 +28,8 @@ export interface userState {
 const initialState: userState = {
   id: null,
   username: null,
+  createdAt: null,
+  updatedAt: null,
   fetchStatus: wdRequestStatusFetch,
   fetchError: null,
 }
@@ -73,10 +77,12 @@ export const userSlice = createSlice({
       .addCase(createUser.fulfilled, (state, action) => {
         const s = current(state)
         const { payload } = action
-        const { _id: id, username } = payload
+        const { _id: id, username, createdAt, updatedAt } = payload
         const m = R.mergeRight(s, {
           id: id,
           username: username,
+          createdAt,
+          updatedAt,
           fetchStatus: wdRequestStatusFulfilled,
         })
         console.log('fullfilled m', m)

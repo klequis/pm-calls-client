@@ -1,9 +1,9 @@
-import { selectUser } from '../selectors/userSelector'
-import { useAppSelector } from '../app/hooks'
-import { /*useItems, useUsers,*/ useLink } from '../services'
+import { selectUser } from 'src/selectors'
+import { useAppSelector } from 'src/app'
+// import { useLink } from '../tokens/useLink'
 
 export const User = () => {
-  const { generateLinkToken, linkTokens } = useLink()
+  // const { generateLinkToken, linkTokens } = useLink()
   const { username } = useAppSelector(selectUser)
   return (
     <>
